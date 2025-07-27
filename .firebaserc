@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "geminimasters-2ee46"
+  },
+  "targets": {
+    "geminimasters-2ee46": {
+      "hosting": {
+        "soulmaps-ui": [
+          "soul-map-client-pages"
+        ]
+      }
+    }
   }
 }
