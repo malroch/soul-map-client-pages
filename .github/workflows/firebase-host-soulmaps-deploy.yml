@@ -9,19 +9,19 @@ jobs:
   deploy:
     name: Deploy to Firebase Hosting
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: 🔎 Debug SA Key Existence
-        run: echo "$GCP_SA_KEY" | jq .
-        env:
-          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+      - name: Show first part of FIREBASE_SERVICE_ACCOUNT for debug
+        run: |
+          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}" | head -c 100
+          echo ""
+          echo "✅ Service account key detected (first 100 chars shown above)"
 
-      - name: 🔥 Deploy to Firebase Hosting
+      - name: Deploy to Firebase Hosting
         uses: w9jds/firebase-action@v2.2.0
         with:
-          args: deploy --only hosting:soulmaps-ui
+          args: deploy --only hosting:soulmaps-ui --debug
         env:
           GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
