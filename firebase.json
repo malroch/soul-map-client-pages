@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "target": "soulmaps-ui",
     "public": ".",
     "ignore": [
       "firebase.json",
