@@ -1,27 +1,22 @@
-name: 🚀 Deploy Soul Maps to Firebase Hosting (soulmaps-ui)
+name: 🚀 Firebase Deploy - Soulmaps UI
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   deploy:
+    name: Deploy to Firebase Hosting
     runs-on: ubuntu-latest
+
     steps:
-      - name: ⬇️ Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: 🛠 Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Install Firebase CLI and deploy
+        uses: w9jds/firebase-action@v13
         with:
-          node-version: '18'
-
-      - name: 🔥 Deploy to Firebase Hosting (target: soulmaps-ui)
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: "${{ secrets.GITHUB_TOKEN }}"
-          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
-          projectId: geminimasters-2ee46
-          target: soulmaps-ui
+          args: deploy --only hosting:soulmaps-ui
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
