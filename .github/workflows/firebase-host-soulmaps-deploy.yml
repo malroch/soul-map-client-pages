@@ -15,7 +15,7 @@ jobs:
         uses: w9jds/firebase-action@v2.2.0
 
       - name: Install Firebase CLI and deploy
-        uses: w9jds/firebase-action@v13
+        uses: w9jds/firebase-action@v2.2.0
         with:
           args: deploy --only hosting:soulmaps-ui
         env:
