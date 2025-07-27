@@ -1,4 +1,4 @@
-name: 🚀 Firebase Deploy - Soulmaps UI
+name: 🚀 Firebase Deploy – Soulmaps UI
 
 on:
   push:
@@ -19,4 +19,4 @@ jobs:
         with:
           args: deploy --only hosting:soulmaps-ui
         env:
-          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
