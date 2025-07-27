@@ -22,6 +22,6 @@ jobs:
       - name: Deploy to Firebase Hosting
         uses: w9jds/firebase-action@v2.2.0
         with:
-          args: deploy --only hosting:soulmaps-ui --debug
+          args: deploy --only hosting:soulmaps-ui --project geminimasters-2ee46 --debug
         env:
           GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
