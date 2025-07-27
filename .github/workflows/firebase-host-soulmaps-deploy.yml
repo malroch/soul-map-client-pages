@@ -12,11 +12,11 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: w9jds/firebase-action@v2.2.0
+        uses: actions/checkout@v3
 
-      - name: Install Firebase CLI and deploy
+      - name: Deploy using Service Account
         uses: w9jds/firebase-action@v2.2.0
         with:
           args: deploy --only hosting:soulmaps-ui
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
