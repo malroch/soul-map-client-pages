@@ -6,8 +6,7 @@
     "geminimasters-2ee46": {
       "hosting": {
         "soulmaps-ui": [
-          "geminimasters-2ee46",
-          "soul-map-client-pages"
+          "soulmaps-ui"
         ]
       }
     }
