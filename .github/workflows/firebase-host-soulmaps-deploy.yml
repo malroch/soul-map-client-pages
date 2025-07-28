@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Decode FIREBASE_SERVICE_ACCOUNT key into file
+      - name: Set up GCP SA Key
         run: echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}" > $HOME/gcp_key.json
 
       - name: Deploy to Firebase
@@ -22,4 +22,4 @@ jobs:
         with:
           args: deploy --only hosting:soulmaps-ui --project geminimasters-2ee46
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: $HOME/gcp_key.json
+          GCP_SA_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
