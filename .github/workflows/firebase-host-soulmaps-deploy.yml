@@ -1,4 +1,4 @@
-name: Deploy to Firebase Hosting (base64 workaround)
+name: Firebase Deploy – Soulmaps UI
 
 on:
   push:
@@ -7,11 +7,15 @@ on:
 
 jobs:
   deploy:
+    name: Deploy to Firebase Hosting (base64 workaround)
     runs-on: ubuntu-latest
 
     steps:
+      - name: Set up job
+        run: echo "Starting Firebase deploy job..."
+
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Firebase CLI
         run: |
@@ -19,18 +23,13 @@ jobs:
 
       - name: Decode Base64 Service Account
         run: |
-          echo "$FIREBASE_SERVICE_ACCOUNT_B64" | base64 -d > "${HOME}/gcloud.json"
-        shell: bash
-        env:
-          FIREBASE_SERVICE_ACCOUNT_B64: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_B64 }}
+          echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_B64 }}" | base64 -d > "${HOME}/gcloud.json"
 
       - name: Authenticate with GCP
         run: |
-          gcloud auth activate-service-account --key-file="${HOME}/gcloud.json" \
-            --project="geminimasters-2ee46"
+          gcloud auth activate-service-account --key-file="${HOME}/gcloud.json" --project="geminimasters-2ee46"
           gcloud config set project geminimasters-2ee46
-          gcloud auth application-default login --quiet --scopes="openid,email,https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/firebase"
-        shell: bash
+          export GOOGLE_APPLICATION_CREDENTIALS="${HOME}/gcloud.json"
 
       - name: Deploy to Firebase Hosting
         run: |
