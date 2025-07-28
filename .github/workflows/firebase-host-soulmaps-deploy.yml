@@ -7,13 +7,10 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to Firebase Hosting (base64 workaround)
+    name: Deploy to Firebase Hosting (service account base64 auth)
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up job
-        run: echo "Starting Firebase deploy job..."
-
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -21,16 +18,20 @@ jobs:
         run: |
           curl -sL https://firebase.tools | bash
 
-      - name: Decode Base64 Service Account
+      - name: Decode Service Account
         run: |
           echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_B64 }}" | base64 -d > "${HOME}/gcloud.json"
 
-      - name: Authenticate with GCP
+      - name: Set GOOGLE_APPLICATION_CREDENTIALS
         run: |
+          echo "Setting GOOGLE_APPLICATION_CREDENTIALS..."
+          export GOOGLE_APPLICATION_CREDENTIALS="${HOME}/gcloud.json"
           gcloud auth activate-service-account --key-file="${HOME}/gcloud.json" --project="geminimasters-2ee46"
           gcloud config set project geminimasters-2ee46
-          export GOOGLE_APPLICATION_CREDENTIALS="${HOME}/gcloud.json"
 
-      - name: Deploy to Firebase Hosting
+      - name: Deploy to Firebase
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/gcloud.json
         run: |
-          firebase deploy --only hosting:soulmaps-ui --debug
+          cp "${HOME}/gcloud.json" "$GOOGLE_APPLICATION_CREDENTIALS"
+          firebase deploy --only hosting:soulmaps-ui --debug --project geminimasters-2ee46
