@@ -1,4 +1,4 @@
-name: 🔥 Firebase Hosting Deploy (Soulmaps UI)
+name: 🔥 Manual Firebase CLI Deploy (Base64-safe)
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    name: Manual Firebase CLI Deploy
+    name: Deploy to Firebase Hosting (base64 workaround)
     runs-on: ubuntu-latest
 
     steps:
@@ -17,16 +17,13 @@ jobs:
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
 
-      - name: Decode Service Account JSON
-        run: echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}" > "${HOME}/gcloud.json"
+      - name: Decode Base64 Service Account
+        run: echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_B64 }}" | base64 -d > "$HOME/gcloud.json"
 
-      - name: Firebase Login (Activate Service Account)
+      - name: Authenticate with GCP
         run: |
-          firebase --debug --project geminimasters-2ee46 logout || true
-          gcloud auth activate-service-account --key-file="${HOME}/gcloud.json"
+          gcloud auth activate-service-account --key-file="$HOME/gcloud.json"
           gcloud config set project geminimasters-2ee46
-          firebase use --add geminimasters-2ee46 || true
 
       - name: Deploy to Firebase Hosting
-        run: |
-          firebase deploy --only hosting:soulmaps-ui --debug --project geminimasters-2ee46
+        run: firebase deploy --only hosting:soulmaps-ui --debug
