@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Strategic Soul Map | GeminiMasters (v23)</title>
+  <title>Strategic Soul Map | GeminiMasters </title>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
   <meta name="description" content="Your personalized Strategic Soul Map — Western Astrology, Human Design, Vedic Astrology, BaZi, and Numerology synthesized in the Master's Voice." />
@@ -16,33 +18,62 @@
     :root { color-scheme: dark; }
     .gm-bg-overlay { position: absolute; inset: 0; background-image: linear-gradient(to bottom, #3b407f, #492b5f, #1f2032); opacity: .35; pointer-events: none; }
     .prose p { margin-bottom: 1em; }
-    .accent { color: #D4AF37; } /* v20 accent color for section headers/cards */
+    .accent { color: #D4AF37; } /* accent color for section headers/cards */
+    header, section { position: relative; z-index: 0; }
+    .gm-bg-overlay { position: absolute; inset: 0; z-index: -1; opacity: .35; }
+
+   /* center the two columns under the section title */
+   .gm-center { max-width: 1060px; margin-left: auto; margin-right: auto; }
+   .gm-cols { display: grid; grid-template-columns: 1fr; gap: 2.5rem 3.5rem; }
+   @media (min-width: 768px){
+     .gm-cols { grid-template-columns: repeat(2, minmax(0,1fr)); }
+     /* pull the columns inward toward the center line */
+     .gm-cols > *:nth-child(odd){ justify-self: end; padding-right: 1.5rem; }
+     .gm-cols > *:nth-child(even){ justify-self: start; padding-left: 1.5rem; }
+   }
+  </style>
+  <style>
+    :root {
+      --gm-gold: #D6B370; /* your gold */
+    }  
+    .gm-gold { color: var(--gm-gold); }
+
+    /* badges/chips used in foundations + per-system headers */
+    .gm-chip{
+      font-size: .9rem;
+      border-radius: 1rem;
+      padding: .25rem .6rem;
+      background: rgba(17,17,17,.55);
+      border: 1px solid #3f3f46; /* neutral-700 */
+      line-height: 1.25rem;
+    }
+
+    /* optional: bump body contrast slightly on darker monitors */
+    .gm-body { color: #D1D5DB; } /* ~gray-300 */
   </style>
 </head>
 <body class="antialiased bg-neutral-950 text-white font-[Inter]">
-
-<!-- Hero Header -->
 <header class="relative py-12 px-4 bg-gradient-to-br from-neutral-800 to-neutral-900">
   <div class="gm-bg-overlay"></div>
 
-  <div class="relative max-w-6xl mx-auto flex items-center justify-between">
-    <a href="/" class="inline-flex items-center">
-      <img src="/assets/logo.png" alt="GeminiMasters Logo" class="h-16 md:h-20 opacity-95 hover:opacity-100 transition-opacity duration-200"/>
-    </a>
+  <!-- Centered Logo -->
+  <div class="relative max-w-6xl mx-auto text-center">
+    <img src="assets/logo.png" alt="GeminiMasters Logo"
+         class="mx-auto h-20 md:h-28 opacity-95 hover:opacity-100 transition-opacity duration-200"/>
   </div>
 
+  <!-- Visible Page Title + Subtitle -->
   <div class="relative max-w-5xl mx-auto text-center mt-8">
-    <h1 class="text-5xl md:text-7xl leading-tight font-medium text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-600 mb-5">
-      You Are a Multidimensional Design
+    <h1 class="text-5xl md:text-7xl leading-tight pb-2 font-medium text-transparent bg-clip-text
+               bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-600 mb-4">
+      Strategic Soul Map
     </h1>
-    <div class="w-32 h-[3px] bg-gradient-to-r from-yellow-400 to-yellow-600 mx-auto rounded-full mb-6"></div>
     <p class="text-xl md:text-2xl leading-relaxed text-gray-200">
-      A unified reading in the Master’s Voice — Western Astrology, Human Design, Vedic Astrology,
-      BaZi, and Numerology aligned into one coherent map.
+      A unified reading in The Master's Voice - Western Astrology, Human Design, Vedic Astrology, BaZi, and Numerology aligned into one, coherent and personalised map.    
+      Not a forecast. A rediscovery of the cosmic design that has always been yours.
     </p>
-    <p class="text-xl md:text-2xl leading-relaxed text-gray-200 mt-3">
-      Not a forecast. A recalibration to the design that has always been yours.
-    </p>
+   
+    
   </div>
 </header>
 
@@ -52,59 +83,59 @@
   <div class="relative max-w-xl mx-auto text-2xl text-gray-400 tracking-widest">☉ ☽ ♂ ♀ ♃ ♄ ♅ ♆ ♇ ⚝ ⟴</div>
 </section>
 
+
 <!-- Cosmic Foundations -->
-<section class="py-20 px-6 bg-neutral-900 text-white relative">
+<section class="py-20 px-6 bg-gradient-to-b from-neutral-900 to-neutral-950 text-white relative gm-no-overlay">
   <div class="gm-bg-overlay"></div>
-  <div class="relative max-w-5xl mx-auto text-center">
-    <h2 class="text-5xl font-bold mb-6 accent">✦ Your Cosmic Foundations</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-left text-lg text-gray-200">
+  <div class="relative mx-auto max-w-[750px]">
+    <h2 class="text-center text-5xl font-bold mb-10 accent">✦ Your Cosmic Foundations</h2>
 
-      <!-- Numerology -->
-      <div>
-        <h3 class="font-semibold accent mb-2">Numerology</h3>
-        <p>★ Life Path: 5</p>
-        <p>❤ Soul Urge: 33</p>
-        <p>▦ Maturity: 4</p>
-      </div>
-
-      <!-- Human Design -->
-      <div>
-        <h3 class="font-semibold accent mb-2">Human Design</h3>
-        <p>✧ Type: Generator</p>
-        <p>✦ Authority: Sacral</p>
-        <p>⚛ Profile: 4/2</p>
-        <p>☲ Gates &amp; Channels: Channel of Initiation</p>
-        <p>☯ Centers Defined: G Center, Heart, Sacral, Spleen</p>
-      </div>
-
-      <!-- Western Astrology -->
-      <div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-09 justify-items-center text-left text-lg text-gray-200">
+            <!-- Western Astrology -->
+      <div class="w-full max-w-[600px]">
         <h3 class="font-semibold accent mb-2">Western Astrology</h3>
-        <p>♈︎ Sun: Gemini</p>
-        <p>☽ Moon: Sagittarius</p>
-        <p>↑ Rising: Virgo</p>
-        <p>⋄ Dominant Element: Air</p>
-        <p>⌂ House Emphasis: 10</p>
+        <p>♈︎ Sun: <span class="gm-gold">Gemini</span></p>
+        <p>☽ Moon: <span class="gm-gold">Sagittarius</span></p>
+        <p>↑ Rising: <span class="gm-gold">Virgo</span></p>
+        <p>⋄ Dominant Element: <span class="gm-gold">Air</span></p>
+        <p>⌂ House Emphasis: <span class="gm-gold">10</span></p>
         
       </div>
 
+      <!-- Human Design -->
+      <div class="w-full max-w-[600px]">
+        <h3 class="font-semibold accent mb-2">Human Design</h3>
+        <p>✧ Type: <span class="gm-gold">Generator</span></p>
+        <p>✦ Authority: <span class="gm-gold">Sacral</span></p>
+        <p>⚛ Profile: <span class="gm-gold">4/2</span></p>
+        <p>☲ Gates &amp; Channels: <span class="gm-gold">Channel of Initiation</span></p>
+        <p>☯ Centers Defined: <span class="gm-gold">G Center, Heart, Sacral, Spleen</span></p>
+      </div>
+
+      <!-- Numerology -->
+      <div class="w-full max-w-[600px]">
+        <h3 class="font-semibold accent mb-2">Numerology</h3>
+        <p>★ Life Path: <span class="gm-gold">5</span></p>
+        <p>❤ Soul Urge: <span class="gm-gold">33</span></p>
+        <p>▦ Maturity: <span class="gm-gold">4</span></p>
+      </div>
+
       <!-- Vedic Astrology -->
-      <div>
+      <div class="w-full max-w-[600px]">
         <h3 class="font-semibold accent mb-2">Vedic Astrology</h3>
-        <p>★ Nakshatra: Purva Ashadha</p>
-        <p>⚷ Dasha Period: Rahu Mahadasha</p>
+        <p>★ Nakshatra: <span class="gm-gold">Purva Ashadha</span></p>
+        <p>⚷ Dasha Period: <span class="gm-gold">Rahu Mahadasha</span></p>
       </div>
 
-      <!-- BaZi -->
-      <div>
-        <h3 class="font-semibold accent mb-2">BaZi / Chinese Metaphysics</h3>
-        <p>⛩ Day Master: Yang Water</p>
-        <p>🜁 Elemental Balance: Wood:0, Fire:1, Earth:1, Metal:2, Water:4</p>
-        <p>🜂 Chinese Zodiac: Pig</p>
-        <p>⚡ Ten Gods: Friend×2, Proper Resource×1</p>
-      </div>
-
+      <!-- BaZi / Chinese Metaphysics -->
+     <div class="w-full md:col-span-2 max-w-[960px]">
+       <h3 class="font-semibold accent mb-2">BaZi / Chinese Metaphysics</h3>
+       <p>⛩ Day Master: <span class="gm-gold">Yang Water</span></p>
+       <p>🜁 Elemental Balance: <span class="gm-gold">Wood:0, Fire:1, Earth:1, Metal:2, Water:4</span></p>
+       <p>🜂 Chinese Zodiac: <span class="gm-gold">Pig</span></p>
+       <p>⚛ Ten Gods: <span class="gm-gold">Friend×2, Proper Resource×1</span></p>
+     </div>
     </div>
   </div>
 </section>
@@ -116,97 +147,327 @@
 </section>
 
 <!-- ===== Western Astrology ===== -->
-<section class="relative py-20 px-4 bg-gradient-to-b from-neutral-800 to-neutral-950 text-white">
+<section class="relative py-20 px-4 bg-gradient-to-b from-neutral-800 to-neutral-950 text-center text-white">
   <div class="gm-bg-overlay"></div>
   <div class="relative max-w-4xl mx-auto">
     <h2 class="text-4xl font-bold mb-6 accent">♈︎ Western Astrology</h2>
+
+        <!-- Foundation chips appear here -->
+    <div class="mt-3 flex flex-wrap justify-center gap-2">
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Sun:</span>
+      <span class="gm-gold ml-1">Gemini</span>
+    </span>
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Moon:</span>
+      <span class="gm-gold ml-1">Sagittarius</span>
+    </span>
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Rising:</span>
+      <span class="gm-gold ml-1">Virgo</span>
+    </span>
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Element:</span>
+      <span class="gm-gold ml-1">Air</span>
+    </span>
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Houses:</span>
+      <span class="gm-gold ml-1">10</span>
+    </span>
+  
+</div>
+
+    
+      <div class="prose prose-invert max-w-none text-gray-200 leading-relaxed mt-6">In this soul's celestial composition, the Gemini Sun shines its illuminating light in the 10th house of reputation and legacy, blending intellect with ambition. Your Sagittarius Moon, residing in the 4th house of roots and emotions, urges you to seek truth and expand your inner horizons. With a Virgo Rising, you wear a mask of practicality and discernment, a humble servant of the cosmic order. Guided by the dominant element of Air, your mind soars like a feather on the breeze, seeking connections and knowledge in the ethereal realms. You stand at the crossroads of practicality and exploration, of structure and expansion, embodying the essence of duality within the cosmic dance of the universe.</div>
     
 
     <div class="grid md:grid-cols-2 gap-6 mt-8">
       
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Sacred Purpose</h3>
+        <p class="text-gray-200">Your sacred purpose is to bridge the gap between knowledge and wisdom, to synthesize information from various sources and share it in a way that inspires others to expand their minds and hearts. You are a seeker of truth and a messenger of the cosmic mysteries.</p>
+      </div>
       
       
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Current Life Challenge</h3>
+        <p class="text-gray-200">Your current life challenge may involve finding the right balance between work and home life, between practical responsibilities and philosophical pursuits. Strive to integrate these aspects of your existence to create a harmonious and fulfilling reality.</p>
+      </div>
       
       
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Evolutionary Edge</h3>
+        <p class="text-gray-200">Your evolutionary edge lies in embracing the unknown, in venturing beyond the confines of your comfort zone to explore new territories of thought and experience. Trust in the wisdom of the universe to guide you towards your highest potential.</p>
+      </div>
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Soul Gifts</h3>
+        <p class="text-gray-200">Your gifts lie in your ability to communicate with clarity and charm, to adapt to diverse situations with ease, and to inspire others with your intellectual curiosity. Embrace these talents as offerings to the world.</p>
+      </div>
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Karmic Patterns</h3>
+        <p class="text-gray-200">This soul may face karmic lessons related to balancing skepticism with faith, logic with intuition, and practicality with idealism. Striving to find harmony between these polarities will unlock deeper spiritual growth and evolution.</p>
+      </div>
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Sacred Insights</h3>
+        
+          <ul class="list-disc pl-6 space-y-2 text-gray-200">
+            <li>Embrace the duality within you, for it is in the paradoxes that you find wisdom and growth.</li><li>Honor your need for both structure and freedom, allowing your mind to wander while grounding your aspirations in reality.</li><li>Seek balance between your intellectual pursuits and emotional truths, integrating both sides of your nature to walk a path of authenticity.</li><li>Let the winds of change carry you towards new horizons, trusting in the cosmic flow of life to guide your journey.</li>
+          </ul>
+        
+      </div>
       
     </div>
   </div>
 </section>
 
 <!-- ===== Human Design ===== -->
-<section class="relative py-16 px-4 bg-gradient-to-br from-neutral-800 to-neutral-900 text-white">
+<section class="relative py-16 px-4 bg-gradient-to-br from-neutral-800 to-neutral-900 text-center text-white">
   <div class="gm-bg-overlay"></div>
   <div class="relative max-w-4xl mx-auto">
     <h2 class="text-4xl font-bold mb-6 accent">✧ Human Design</h2>
+	<div class="mt-3 flex flex-wrap justify-center gap-2">
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Type:</span>
+      <span class="gm-gold ml-1">Generator</span>
+    </span>
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Authority:</span>
+      <span class="gm-gold ml-1">Sacral</span>
+    </span>
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Profile:</span>
+      <span class="gm-gold ml-1">4/2</span>
+    </span>
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Centers:</span>
+      <span class="gm-gold ml-1">G Center, Heart, Sacral, Spleen</span>
+    </span>
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Gates/Channels:</span>
+      <span class="gm-gold ml-1">Channel of Initiation</span>
+    </span>
+  
+</div>
+
+    
+      <div class="prose prose-invert max-w-none text-gray-200 leading-relaxed mt-6">You, this Generator soul with a 4/2 Profile and a Sacral Authority, embody the power of initiation through the Channel of Initiation. Your defined G Center, Heart, Sacral, and Spleen form a potent foundation for your journey. In the depths of Gate 48's resourcefulness and the shock of Gate 51's competitive spirit, you navigate the dance of universal love in Gate 25 and the retreat into reflection of Gate 33. Your soul finds solace in the determination of self through Gates 46 and 56, weaving stories of belief and serendipity. The influence of Gates 26 and 26 calls you to embrace salesmanship and the egoist within. Each gate a doorway to a facet of your being, shaping the narrative of your existence.</div>
     
 
     <div class="grid md:grid-cols-2 gap-6 mt-8">
       
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Sacred Purpose</h3>
+        <p class="text-gray-200">Your sacred purpose is to navigate the dance of initiation with grace and authenticity, embodying the power of universal love and reflection. Through storytelling and belief, you illuminate the path for yourself and others, embracing the depths of your soul's wisdom.</p>
+      </div>
       
       
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Current Life Challenge</h3>
+        <p class="text-gray-200">Your current life challenge revolves around balancing the competitive edge of Gate 51 with the resourcefulness of Gate 48. Finding harmony between these energies will lead you towards a path of growth and fulfillment.</p>
+      </div>
       
       
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Evolutionary Edge</h3>
+        <p class="text-gray-200">Your evolutionary edge lies in embracing the solitude and reflection of Gate 33, allowing the wisdom of retreat to guide you towards deeper self-understanding and connection with the world around you.</p>
+      </div>
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Soul Gifts</h3>
+        <p class="text-gray-200">Your soul gifts lie in the depths of storytelling and belief, fueled by the love of the body and serendipity found in Gates 46 and 56. Embrace your emotional turbulence and transition through the lens of Gate 36, allowing your soul's wisdom to shine through.</p>
+      </div>
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Karmic Patterns</h3>
+        <p class="text-gray-200">Your karmic patterns revolve around embracing the egoist within, balancing the influences of Gates 26 and 26. Learning to wield your influence with integrity and authenticity is a key lesson for this soul's evolution.</p>
+      </div>
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Sacred Insights</h3>
+        
+          <ul class="list-disc pl-6 space-y-2 text-gray-200">
+            <li>Embrace the power of initiation within you, allowing the spark of Gate 51 to ignite your path forward.</li><li>Explore the depths of Gate 48's resourcefulness, finding strength in moments of perceived inadequacy.</li><li>Dive into the realms of universal love and innocence, as Gate 25 and Gate 56 guide you towards deeper connections.</li><li>Honor the retreat and reflection of Gate 33, for within the privacy of solitude, your true self emerges.</li>
+          </ul>
+        
+      </div>
       
     </div>
   </div>
 </section>
 
 <!-- ===== Vedic Astrology ===== -->
-<section class="relative py-20 px-6 bg-gradient-to-br from-neutral-800 to-neutral-900 text-white">
+<section class="relative py-20 px-6 bg-gradient-to-br from-neutral-800 to-neutral-900 text-center text-white">
   <div class="gm-bg-overlay"></div>
   <div class="relative max-w-4xl mx-auto">
     <h2 class="text-4xl font-bold mb-6 accent">ॐ Vedic Astrology</h2>
+	<div class="mt-3 flex flex-wrap justify-center gap-2">
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Nakshatra:</span>
+      <span class="gm-gold ml-1">Purva Ashadha</span>
+    </span>
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Dasha:</span>
+      <span class="gm-gold ml-1">Rahu Mahadasha</span>
+    </span>
+  
+</div>
+    
+      <div class="prose prose-invert max-w-none text-gray-200 leading-relaxed mt-6">In the realm of Sagittarius, under the guiding light of Purva Ashadha's first pada, this soul finds itself in a journey marked by Venus' tender touch. Venus, the Nakshatra Lord, bestows upon you the gift of deep emotional connection and artistic sensibility. Rahu's enigmatic shadow falls upon your path during this Mahadasha, stirring a desire for exploration and unconventional pursuits. Like a cosmic river flowing through distant lands, your soul is pulled towards uncharted territories, seeking to uncover hidden truths and mysteries. Embrace the dance of Venus and Rahu within you, for they hold the keys to unlocking profound transformations and spiritual growth.</div>
     
 
     
 
     <div class="grid md:grid-cols-2 gap-6 mt-8">
       
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Sacred Purpose</h3>
+        <p class="text-gray-200">Your sacred purpose lies in exploring the depths of your emotional world, seeking beauty and harmony in all aspects of life, and sharing your discoveries with the world.</p>
+      </div>
       
       
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Current Life Challenge</h3>
+        <p class="text-gray-200">Your current challenge may revolve around balancing the need for freedom and exploration with the desire for stability and emotional connections, navigating between Venus' grace and Rahu's unpredictability.</p>
+      </div>
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Evolutionary Edge</h3>
+        <p class="text-gray-200">Embracing the transformative energies of Rahu and the emotional depth of Venus will propel you towards spiritual growth and a deeper understanding of your soul's purpose.</p>
+      </div>
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Soul Gifts</h3>
+        <p class="text-gray-200">Your soul carries the gift of seeking higher truths, expressing emotions through art, and forging deep connections with others.</p>
+      </div>
       
     </div>
   </div>
 </section>
 
 <!-- ===== BaZi ===== -->
-<section class="relative py-16 px-4 bg-gradient-to-br from-neutral-800 to-neutral-900 text-white">
+<section class="relative py-16 px-4 bg-gradient-to-br from-neutral-800 to-neutral-900 text-center text-white">
   <div class="gm-bg-overlay"></div>
   <div class="relative max-w-4xl mx-auto">
     <h2 class="text-4xl font-bold mb-6 accent">阴 BaZi / Chinese Metaphysics</h2>
-    <p class="text-xl leading-relaxed max-w-3xl text-gray-200">BaZi — the Four Pillars of Destiny — reveals elemental essence and timing.</p>
+	<div class="mt-3 flex flex-wrap justify-center gap-2">
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Day Master:</span>
+      <span class="gm-gold ml-1">Yang Water</span>
+    </span>
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Elemental Balance:</span>
+      <span class="gm-gold ml-1">Wood:0, Fire:1, Earth:1, Metal:2, Water:4</span>
+    </span>
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Zodiac:</span>
+      <span class="gm-gold ml-1">Pig</span>
+    </span>
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Ten Gods:</span>
+      <span class="gm-gold ml-1">Friend×2, Proper Resource×1</span>
+    </span>
+  
+</div>
 
-    <div class="flex flex-wrap gap-2 mt-6">
-      <span class="px-3 py-1 rounded-full border border-neutral-700 text-sm">Day Master: Yang Water</span>
-      <span class="px-3 py-1 rounded-full border border-neutral-700 text-sm">Elements: Wood:0, Fire:1, Earth:1, Metal:2, Water:4</span>
-      <span class="px-3 py-1 rounded-full border border-neutral-700 text-sm">Zodiac: Pig</span>
-      <span class="px-3 py-1 rounded-full border border-neutral-700 text-sm">Ten Gods: Friend×2, Proper Resource×1</span>
-    </div>
-
+    
+      <div class="prose prose-invert max-w-none text-gray-200 leading-relaxed mt-6">In your cosmic design, you bear the essence of Yang Water, flowing with adaptability and strength amidst life's currents. Your dominant element, Water, imbues you with profound intuition, depth, and emotional sensitivity. Guided by two Friend Ten Gods and one Proper Resource, you navigate relationships with grace and wisdom, offering support and camaraderie effortlessly. Your elemental totals reveal a harmonious balance, with the clarity of Metal enhancing your Water's depth. Born under the Year of Xin Hai Pig, the gentle resilience of this sign infuses your being, while the Month of Ren Wu Horse brings you vitality and courage. The Day of Ren Xu Dog adds loyalty and compassion to your character, and the Hour of Ren Shen Monkey bestows wit and creativity upon you, a playful yet wise soul in this earthly realm.</div>
     
 
     <div class="grid md:grid-cols-2 gap-6 mt-8">
       
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Sacred Purpose</h3>
+        <p class="text-gray-200">Your sacred purpose is to navigate the waters of emotions with wisdom and grace, forging deep connections with others and offering guidance and support rooted in empathy and intuition.</p>
+      </div>
       
       
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Current Life Challenge</h3>
+        <p class="text-gray-200">Your current life challenge may lie in finding the balance between being emotionally present and maintaining healthy boundaries, as well as discerning when to offer support and when to prioritize self-care.</p>
+      </div>
       
       
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Evolutionary Edge</h3>
+        <p class="text-gray-200">Your evolutionary edge lies in honing your intuitive gifts to serve not only yourself but also those around you, cultivating relationships that are built on mutual understanding and emotional depth.</p>
+      </div>
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Soul Gifts</h3>
+        <p class="text-gray-200">Your soul carries the gifts of empathy, intuition, loyalty, and creative wisdom. These qualities enrich your relationships, infusing them with depth and authenticity.</p>
+      </div>
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Karmic Patterns</h3>
+        <p class="text-gray-200">Your karmic patterns may involve learning to navigate the depths of your emotions without being overwhelmed, finding the balance between giving and receiving in relationships, and honing your intuition to discern true friendships from superficial connections.</p>
+      </div>
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-xl font-semibold mb-2 accent">Sacred Insights</h3>
+        
+          <ul class="list-disc pl-6 space-y-2 text-gray-200">
+            <li>Embrace the fluidity of Water within you, allowing it to guide your intuitive gifts and emotional depths.</li><li>Nurture your friendships and connections, for they are a source of strength and support in your journey.</li><li>Tap into the wisdom of your Proper Resource energy, finding solace in providing assistance and guidance to others.</li><li>Find balance in the interplay of your elemental energies, letting the clarity of Metal enhance the depth of your Water nature.</li>
+          </ul>
+        
+      </div>
       
     </div>
   </div>
 </section>
 
 <!-- ===== Numerology ===== -->
-<section class="relative py-16 px-4 bg-gradient-to-br from-neutral-800 to-neutral-900 text-white">
+<section class="relative py-16 px-4 bg-gradient-to-br from-neutral-800 to-neutral-900 text-center text-white">
   <div class="gm-bg-overlay"></div>
   <div class="relative max-w-4xl mx-auto">
     <h2 class="text-4xl font-bold mb-6 accent">★ Numerology</h2>
-    <p class="text-xl leading-relaxed max-w-3xl text-gray-200">Numerology distills your path into core frequencies.</p>
-
-    <div class="flex flex-wrap gap-2 mt-6">
-      
-    </div>
-
+	<div class="mt-3 flex flex-wrap justify-center gap-2">
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Life Path:</span>
+      <span class="gm-gold ml-1">5</span>
+    </span>
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Soul Urge:</span>
+      <span class="gm-gold ml-1">33</span>
+    </span>
+  
+    <span class="gm-chip">
+      <span class="opacity-70">Maturity:</span>
+      <span class="gm-gold ml-1">4</span>
+    </span>
+  
+</div>
     
 
     <div class="grid md:grid-cols-2 gap-6 mt-8">
@@ -226,26 +487,127 @@
   <div class="relative max-w-xl mx-auto text-2xl text-gray-400 tracking-widest">☉ ☽ ♂ ♀ ♃ ♄ ♅ ♆ ♇ ⚝ ⟴</div>
 </section>
 
-<!-- ===== Integration & Reflection ===== -->
+<!-- Integration & Reflection -->
 <section class="py-20 px-6 bg-neutral-900 text-white relative">
   <div class="gm-bg-overlay"></div>
-  <div class="relative max-w-3xl mx-auto">
+  <div class="relative max-w-3xl mx-auto text-center">
     <h2 class="text-5xl font-bold mb-6 accent">☉ Integration &amp; Reflection</h2>
 
     
-
-    
-
-    <!-- Combine all prompts from every system (no caps) -->
-    
-    
-    
-    
-    
+      <div class="prose prose-invert max-w-none text-gray-200 leading-relaxed mb-8 text-left">
+        Across multiple systems, this soul embodies a quest for knowledge and wisdom, a balancing act between intellect and emotion, a journey of exploration and expansion, a call to bridge dualities, and a tapestry woven with elements of transformation and growth.
+      </div>
     
 
     
+      <div class="prose prose-invert max-w-none text-gray-200 leading-relaxed mb-10 text-left">
+        You, this soul, are a seeker of truth and knowledge, navigating the dance between intellect and emotion with grace and curiosity. Your sacred purpose lies in bridging dualities within you, finding harmony between expansion and harmony, freedom and responsibility, adventure and leadership. As you weave through the cosmic tapestry of your essence, embracing transformation and evolution, you embody a unique blend of wisdom, compassion, and visionary leadership. Your soul's gifts illuminate the path for others, inspiring them to embrace their own inner light and authenticity. Embrace the depths of your being, honor the dualities within you, and step into your sacred purpose with courage and awareness.
+      </div>
+    
 
+    <!-- Per-system curated prompts (1–2 each, if present) -->
+    <div class="text-left grid md:grid-cols-2 gap-6">
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-lg font-semibold mb-2 accent">Journal Prompts — Western</h3>
+        <ul class="list-disc pl-6 space-y-2 text-gray-200">
+          <li>How can you integrate your thirst for knowledge with your emotional depth to create a harmonious inner world?</li><li>What aspects of your reputation and public image align with your true essence, and which ones need to be redefined?</li>
+        </ul>
+      </div>
+      
+
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-lg font-semibold mb-2 accent">Journal Prompts — Human Design</h3>
+        <ul class="list-disc pl-6 space-y-2 text-gray-200">
+          <li>How can you harness the competitive spirit of Gate 51 in a way that aligns with your authentic self?</li><li>Reflect on a time when your resourcefulness in Gate 48 helped you overcome a challenge.</li>
+        </ul>
+      </div>
+      
+
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-lg font-semibold mb-2 accent">Journal Prompts — Vedic</h3>
+        <ul class="list-disc pl-6 space-y-2 text-gray-200">
+          <li>Reflect on the ways Venus influences your relationships and artistic pursuits.</li><li>How can you embrace the transformative power of Rahu during this period of exploration?</li>
+        </ul>
+      </div>
+      
+
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-lg font-semibold mb-2 accent">Journal Prompts — BaZi</h3>
+        <ul class="list-disc pl-6 space-y-2 text-gray-200">
+          <li>Reflect on a time when your intuition led you down the right path. What did it feel like?</li><li>Explore the dynamics of your closest friendships. In what ways do they support and enrich your life?</li>
+        </ul>
+      </div>
+      
+
+      
+      
+      <div class="rounded-2xl border border-neutral-800 p-5 bg-neutral-900/60">
+        <h3 class="text-lg font-semibold mb-2 accent">Journal Prompts — Numerology</h3>
+        <ul class="list-disc pl-6 space-y-2 text-gray-200">
+          <li>Reflect on a time when you felt the pull between seeking freedom and desiring stability. What did you learn from this experience?</li><li>In what ways can you infuse your leadership style with spiritual principles and deeper wisdom?</li>
+        </ul>
+      </div>
+      
+    </div>
+
+    <!-- Optional: full merged list collapsible -->
+    
+      <div x-data="{ open: false }" class="text-left mt-8">
+        <button @click="open = !open"
+                class="w-full flex items-center justify-between rounded-xl border border-neutral-700 px-4 py-3 bg-neutral-800/60 hover:bg-neutral-800 transition">
+          <span class="font-semibold accent">All Prompts (merged)</span>
+          <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+               d="M12 4v16m8-8H4"/></svg>
+          <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+               viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+               d="M20 12H4"/></svg>
+        </button>
+
+        <div x-show="open" x-collapse class="mt-4 rounded-2xl border border-neutral-800 p-6 bg-neutral-900/60">
+          <ul class="list-disc pl-6 space-y-2 text-gray-200">
+            
+              <li>How can you integrate your thirst for knowledge with your emotional depth to create a harmonious inner world?</li>
+            
+              <li>What aspects of your reputation and public image align with your true essence, and which ones need to be redefined?</li>
+            
+              <li>In what ways can you bring more structure and organization into your explorations and adventures?</li>
+            
+              <li>How can you harness the competitive spirit of Gate 51 in a way that aligns with your authentic self?</li>
+            
+              <li>Reflect on a time when your resourcefulness in Gate 48 helped you overcome a challenge.</li>
+            
+              <li>In what ways can you embody the universal love and innocence of Gate 25 in your interactions with others?</li>
+            
+              <li>Reflect on the ways Venus influences your relationships and artistic pursuits.</li>
+            
+              <li>How can you embrace the transformative power of Rahu during this period of exploration?</li>
+            
+              <li>Explore your beliefs and philosophies about life and truth under the Sagittarius influence.</li>
+            
+              <li>Reflect on a time when your intuition led you down the right path. What did it feel like?</li>
+            
+              <li>Explore the dynamics of your closest friendships. In what ways do they support and enrich your life?</li>
+            
+              <li>How can you best embody the qualities of loyalty and compassion in your daily interactions?</li>
+            
+              <li>Reflect on a time when you felt the pull between seeking freedom and desiring stability. What did you learn from this experience?</li>
+            
+              <li>In what ways can you infuse your leadership style with spiritual principles and deeper wisdom?</li>
+            
+              <li>Explore the concept of power in your life. How do you define it, and how can you wield it for positive transformation?</li>
+            
+          </ul>
+        </div>
+      </div>
     
   </div>
 </section>
@@ -260,6 +622,6 @@
   <div class="text-sm text-gray-600 mt-6">May this Strategic Soul Map illuminate your path as you navigate the currents of your life. — The Masters</div>
 </section>
 
-<!-- AUTO_RENDER_ID: 915c3da0-248b-40be-9f93-ac9e9f874dcb -->
+<!-- AUTO_RENDER_ID: 6e5272cd-dfb9-42b5-b73f-d543c22fbad1 -->
 </body>
 </html>
