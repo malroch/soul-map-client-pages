@@ -1,0 +1,9 @@
+# PROD SoulMaps Hosting containment candidate (WP199, 2026-11-21)
+
+This is a nondeploy branch for site soulmaps-ui in project geminimasters-2ee46, including active custom domain soulmaps.geminimasters.com.
+Current live release before any containment: sites/soulmaps-ui/channels/live/releases/1794356431367000, version sites/soulmaps-ui/versions/bdc41d3c67bdc4ab.
+The current release has 166 paths: 65 tracked site files, two Firebase-generated helpers, and 99 published .git metadata files. Public /.git/HEAD and /.git/refs/heads/main returned HTTP 200. The latter identified source commit ff6c036d302870c0faff0e0f5153a4e836a5c56c, and all 65 tracked site files matched live bytes without opening or reporting client page content.
+This candidate moves those same 65 tracked files into a dedicated public directory with unchanged bytes and makes firebase.json target only soulmaps-ui. It excludes .git from the publication root. The existing 55 client-specific HTML pages remain byte-identical; they are content/data and are not newly created by this candidate.
+Canonical sorted path-and-SHA-256 manifest of the 65 staged files: a1d587ebb3952ab027824c7219d9e315b207e90080f6e429bf2020ef11088101. Candidate firebase.json SHA-256: f5035022ea8b01571454a46acd0a54830e9a79d38f8ed001f48181961899e3cf. A scoped Firebase dry run passed.
+No PROD deploy is authorized by WP199. Before any separately approved deploy, refresh the live release and all 65 exact bytes, then deploy only soulmaps-ui once. Verify the new release has 65 source files and two Firebase-generated helpers, zero .git files, 65/65 unchanged public bytes on both domains, and 99/99 old Git URLs returning 404. Stop on drift.
+The old version remains a rollback reference, but restoring it would re-expose Git metadata; use it only under a separate customer-impact recovery decision. This ref does not establish Firestore backup or historical-exposure review.
